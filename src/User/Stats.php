@@ -3,6 +3,7 @@
 namespace CodeBrewery\Untappd\User;
 
 use CodeBrewery\Untappd\Str;
+use StdClass;
 
 class Stats
 {
@@ -14,7 +15,7 @@ class Stats
     public $totalFollowings;
     public $totalPhotos;
 
-    public function __construct($statsObj)
+    public function __construct(StdClass $statsObj)
     {
         foreach ($statsObj as $key => $value) {
             $camelCase = Str::camel($key);

@@ -4,6 +4,7 @@ namespace CodeBrewery\Untappd\User;
 
 use CodeBrewery\Untappd\Brew\Beer;
 use CodeBrewery\Untappd\Str;
+use StdClass;
 
 class User
 {
@@ -28,7 +29,7 @@ class User
     public $stats;
     public $recentBrews;
 
-    public function __construct($userObj)
+    public function __construct(StdClass $userObj)
     {
         foreach ($userObj as $key => $value) {
             $camelCase = Str::camel($key);
@@ -40,7 +41,7 @@ class User
         $this->recentBrews = $this->collectRecentBrews($userObj);
     }
 
-    protected function collectRecentBrews($userObj)
+    protected function collectRecentBrews(StdClass $userObj)
     {
         if (!isset($userObj->recent_brews)) {
             return [];

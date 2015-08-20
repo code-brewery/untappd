@@ -3,6 +3,7 @@
 namespace CodeBrewery\Untappd\Brew;
 
 use CodeBrewery\Untappd\Str;
+use StdClass;
 
 class Beer
 {
@@ -27,7 +28,7 @@ class Beer
     public $authRating;
     public $wishList;
 
-    public function __construct($beerObj)
+    public function __construct(StdClass $beerObj)
     {
         foreach ($beerObj as $key => $value) {
             $camelCase = Str::camel($key);
